@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="inherit_products_item" inherit_id="website_sale.products_item">
+        <xpath expr="//div[hasclass('o_wsale_product_sub')]//div[hasclass('product_price')]//t" position="after">
+            <t t-if="product.discount_percentage">
+                <del t-attf-class="text-muted me-1 h6 mb-0" style="white-space: nowrap;">
+                    <em class="small" t-esc="product.list_price" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}" />
+                </del>
+            </t>
+        </xpath>
+    </template>
+</odoo>
